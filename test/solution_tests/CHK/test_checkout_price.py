@@ -11,5 +11,7 @@ def test_count_skus(skus, expected_counts):
     assert count_skus(skus) == expected_counts
 
 @pytest.mark.parametrize("prices, special_offers, counts, expected_total", [
-    ({'A': 50, 'B':30, 'C':20, 'D':15}, {'A':[(3, 130)], 'B':[()]})
+    ({'A': 50, 'B':30, 'C':20, 'D':15}, {'A':[(3, 130)], 'B':[(2, 45)]}, {'A':4, 'B':2, 'C':1, 'D':1}, 195),
+    ({'A': 50, 'B':30, 'C':20, 'D':15}, {'A':[(3, 130)], 'B':[(2, 45)]}, {'A':3}, 130)
 ])
+def
