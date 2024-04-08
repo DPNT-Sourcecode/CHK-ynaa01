@@ -2,7 +2,7 @@
 def checkout(skus):
     #  Dict to store prices
     prices = {'A':50, 'B':30, 'C':20, 'D':15}
-    special_offers = {'A': [(3, 130)], 'B':[(2, 45)]}
+    special_offers = {'A': [(3, 130)], 'B':[(2, 45)], 'E':[(2, 'B')]}
 
     #  Dict to store counts of each SKU
     counts = {sku: 0 for sku in prices}
@@ -26,3 +26,4 @@ def checkout(skus):
         total_price += count * price
 
     return total_price
+
