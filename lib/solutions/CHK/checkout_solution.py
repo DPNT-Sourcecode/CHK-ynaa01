@@ -20,16 +20,25 @@ def count_skus(skus):
     for sku in skus:
         counts[sku] += 1
     else:
-        return -1
+        return -1  # Illegal input
     return counts
 
 def calculate_total_rice(prices, special_offers, counts):
     total_price = 0
     for sku, count in counts.items():
         price = prices[sku]
-        special_offers = special_offers.get(sku)
-        if special_offers:
+        special_offer = special_offers.get(sku)
+        if special_offer:
+            total_price += apply_special_ofer(special_offer, count)
+
+        else:
             total_price += count * price
+
+        return total_price
+
+def apply_special_offer(special_offer, count):
+    
+
 
 
 
