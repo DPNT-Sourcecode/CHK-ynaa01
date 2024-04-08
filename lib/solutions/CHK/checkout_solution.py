@@ -2,8 +2,7 @@
 def checkout(skus):
     #  Dict to store prices
     prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40}
-    #  OFfer for 5 As applied before the offer for 3 As
-    special_offers = {'A': [(5, 200), (3, 130)], 'B':[(2, 45)], 'E':[(2, prices['E'] + prices['E'])]}
+    #  entespecial_offers = {'A': [(5, 200), (3, 130)], 'B':[(2, 45)], 'E':[(2, prices['E'] + prices['E'])]}
 
     #  Count occurence of each sku
     sku_counts = {sku:0 for sku in prices}
@@ -34,3 +33,4 @@ def checkout(skus):
         total_price += count * prices[sku]
 
     return total_price
+
