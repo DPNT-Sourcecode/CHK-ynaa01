@@ -10,10 +10,12 @@ def test_checkout_valid_input():
     assert checkout("EE") == 80
     assert checkout("EEB") == 80
     assert checkout("EEEB") == 120
+    assert checkout("AAA") == 130
 
 
 def test_checkout_invalid_input():
     assert checkout("X") == -1
     assert checkout("") == 0
     assert checkout("ABABABABAY") == -1
+
 

@@ -20,7 +20,7 @@ def checkout(skus: str) -> int:
         decrease_B_count_offer = entered_skus['E'] // 2
 
     for sku, count in entered_skus.items():
-        if sku == 'A':
+        if sku == 'A' and count > 4:
             # Apply the discount for 5A = 200
             quotient_5A, remainder_5A = divmod(count, 5)
             total_price += quotient_5A * 200
@@ -40,6 +40,7 @@ def checkout(skus: str) -> int:
 
 
     return total_price
+
 
 
 
