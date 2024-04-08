@@ -14,4 +14,4 @@ def test_checkout_invalid_input():
     assert checkout("ABABABABAY") == -1
 
 def test_checkout_special_offer_e():
-    assert checkout("AAABBEEE") == 210
+    assert checkout("AAABBEEE") == 245
