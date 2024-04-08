@@ -23,17 +23,18 @@ def checkout(skus):
                     sku_counts[sku] -= special_count * offer[0]
         total_price += sku_counts[sku] * prices[sku]
 
-    if 'E' in sku_counts and sku_counts['E'] >= 2 and 'B' in sku_counts:
-        #  Calc number of free 'B' items
-        num_free_b = sku_counts['E'] // 2
-        # deduct price of B from total price for each free 'B'
-        total_price -= num_free_b * prices['B']
+    # if 'E' in sku_counts and sku_counts['E'] >= 2 and 'B' in sku_counts:
+    #     #  Calc number of free 'B' items
+    #     num_free_b = sku_counts['E'] // 2
+    #     # deduct price of B from total price for each free 'B'
+    #     total_price -= num_free_b * prices['B']
 
     # Add price for remaining items
     for sku, count in sku_counts.items():
         total_price += count * prices[sku]
 
     return total_price
+
 
 
 
