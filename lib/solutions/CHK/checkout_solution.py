@@ -10,6 +10,10 @@ def checkout(skus):
     #  Dict to store counts of each SKU
     counts = count_skus(skus)
 
+    #  Check if counts is None indicating illegal input
+    if counts is None:
+        return -1
+
     #  Calc total price
     total_price = calc_total_price(prices, special_offers, counts)
 
@@ -18,6 +22,8 @@ def checkout(skus):
 def count_skus(skus):
     counts = {sku: 0 for sku in 'ABCD'}
     for sku in skus:
+        if sku not in counts:
+            return -1
         counts[sku] += 1
     else:
         return -1  # Illegal input
@@ -45,4 +51,5 @@ def apply_special_offer(special_offer, count):
 
         total_price += count * offer_price
         return total_price
+
 
