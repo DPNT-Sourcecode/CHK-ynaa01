@@ -24,7 +24,7 @@ def checkout(skus: str) -> int:
             if count > 4:
                 # Apply the discount for 5A = 200
                 quotient_5A, remainder_5A = divmod(count, 5)
-                total_price += quotient_5A * 200
+                total_price += quotient_5A * 200 + prices[sku]
                 if remainder_5A > 2:
                     quotient_b, remainder_b = divmod(remainder_5A, 3)
                     total_price += quotient_b * 130 + remainder_b * prices[sku]
@@ -45,3 +45,4 @@ def checkout(skus: str) -> int:
     return total_price
 
 print(checkout("AAAAAA"))
+
