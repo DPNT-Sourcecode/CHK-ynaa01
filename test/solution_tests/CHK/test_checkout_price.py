@@ -7,3 +7,9 @@ from lib.solutions.CHK.checkout_solution import checkout, count_skus, calc_total
     ("ABE", -1),
     ("AAA", {'A':3})
 ])
+def test_count_skus(skus, expected_counts):
+    assert count_skus(skus) == expected_counts
+
+@pytest.mark.parametrize("prices, special_offers, counts, expected_total", [
+    ({'A': 50, 'B':30, 'C':20, 'D':15}, {'A':[(3, 130)], 'B':[()]})
+])
