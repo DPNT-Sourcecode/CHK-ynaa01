@@ -1,5 +1,6 @@
 
-def checkout(skus):
+def checkout(skus: str) -> int:
+    """Function that returns prices of items in a supermarket, accounting for discounts"""
     #  Dict to store prices
     prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40}
 
@@ -14,7 +15,9 @@ def checkout(skus):
             entered_skus[skus[i]] = 1
 
     total_price = 0
-    decrease_B_count_offer = entered_skus['E'] // 2
+    decrease_B_count_offer = 0
+    if 'E' in entered_skus:
+        decrease_B_count_offer = entered_skus['E'] // 2
 
     for sku, count in entered_skus.items():
         if sku == 'A':
@@ -32,6 +35,7 @@ def checkout(skus):
 
 
     return total_price
+
 
 
 
