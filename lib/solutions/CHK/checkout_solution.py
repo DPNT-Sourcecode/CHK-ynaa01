@@ -22,7 +22,7 @@ def checkout(skus: str) -> int:
     for sku, count in entered_skus.items():
         if sku == 'A':
             quotient, remainder = divmod(count, 3)
-            total_price += quotient *130 + remainder * prices[sku]
+            total_price += quotient * 130 + remainder * prices[sku]
         elif sku == 'B':
             if count > 0:
                 count -= decrease_B_count_offer
@@ -35,6 +35,7 @@ def checkout(skus: str) -> int:
 
 
     return total_price
+
 
 
 
