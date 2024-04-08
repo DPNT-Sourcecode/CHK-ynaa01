@@ -4,15 +4,12 @@ def checkout(skus):
     prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40}
     special_offers = {'A': [(3, 130)], 'B':[(2, 45)], 'E':[(2, 'B')]}
 
-    #  Dict to store counts of each SKU
-    counts = {sku: 0 for sku in prices}
-
     #  Count occurence of each sku
-    sku_counts = {}
+    sku_counts = {sku:0 for sku in prices}
     for sku in skus:
         if sku not in prices:
             return -1
-        sku_counts[sku] = sku_counts.get(sku, 0) + 1
+        sku_counts[sku] += 1
 
     #  Calc total price
     total_price = 0
@@ -26,6 +23,7 @@ def checkout(skus):
         total_price += sku_counts[sku] * prices[sku]
 
     return total_price
+
 
 
 
