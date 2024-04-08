@@ -17,15 +17,15 @@ def checkout(skus):
     #  Calc total price
     total_price = 0
     for sku, count in sku_counts.items():
-        price = prices[sku]
-        special_offer = special_offers.get(sku)
-        if special_offer:
-            for offer_count, offer_price in special_offer:
-                while count >= offer_count:
-                    total_price += offer_price
-                    count -= offer_count
-        total_price += count * price
+        if sku in special_offers:
+            for offer in special_offers[sku]:
+                if offer[0] <= sku_counts.get(sku, 0):
+                    special_count = sku_counts[sku] // offer[0]
+                    total_price += special_count * offer[1]
+                    sku_counts[sku] -= special_count * offer[0]
+        total_price += sku_counts[sku] * prices[sku]
 
     return total_price
+
 
 
