@@ -46,8 +46,3 @@ def apply_special_offer(special_offer, count):
         total_price += count * offer_price
         return total_price
 
-
-
-
-
-
