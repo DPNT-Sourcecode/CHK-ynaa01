@@ -12,7 +12,7 @@ def checkout(skus: str) -> int:
         'H': 10,
         'I': 35,
         'J': 60,
-        'K': 80,
+        'K': 70,
         'L': 90,
         'M': 15,
         'N': 40,
@@ -115,7 +115,7 @@ def logic(entered_skus, prices):
                 total_price += quotient_5H * 45 + remainder_5H * prices[sku]
         elif sku == 'K':
             quotient_K, remainder_K = divmod(count, 2)
-            total_price += quotient_K * 150 + remainder_K * prices[sku]
+            total_price += quotient_K * 120 + remainder_K * prices[sku]
         elif sku == 'M':
             if count > 0:
                 count -= decrease_M_count_offer
@@ -180,4 +180,5 @@ def logic(entered_skus, prices):
         else:
             total_price += prices[sku] * count
     return total_price
+
 
