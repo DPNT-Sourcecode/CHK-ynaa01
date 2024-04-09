@@ -90,7 +90,8 @@ def shopping_logic(entered_skus, prices):
                 count -= decrease_Q_count_offer
                 if count < 0:
                     count = 0
-            total_price += count * prices[sku]
+            qQ, rQ = divmod(count, 3)
+            total_price += rQ * prices[sku] + qQ * 80
         elif sku == 'U':
             if count < 4:
                 total_price += prices[sku] * count
