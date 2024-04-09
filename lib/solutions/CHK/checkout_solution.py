@@ -61,6 +61,15 @@ def shopping_logic(entered_skus, prices):
                 #  Calc total number of items to pay for
                 items_to_pay = count - (count // 3)
                 total_price += items_to_pay * prices[sku]
+        elif sku == 'H':
+            if count > 9:
+                q10H, r10H = divmod(count, 10)
+                total_price += q10H * 80
+                if r10H > 4:
+                    q10H_b, r10H_b = divmod(r10H, 5)
+                    total_price += q10H_b * 45 + r10H_b * prices[sku]
+                else:
+                    total_price += r10H * prices[sku]
         else:
             total_price += prices[sku] * count
     return total_price
