@@ -2,7 +2,7 @@
 def checkout(skus: str) -> int:
     """Function that returns prices of items in a supermarket, accounting for discounts"""
     #  Dict to store prices
-    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40}
+    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10}
 
     entered_skus = {}
 
@@ -40,8 +40,15 @@ def checkout(skus: str) -> int:
                     count = 0
             quotient, remainder = divmod(count, 2)
             total_price += quotient*45 + remainder * prices['B']
+        elif sku == 'F':
+            if count < 3:
+                total_price += prices[sku] * count
+            #  Calc total number of items to pay for
+            items_to_pay = count - (count // 3)
+            total_price += items_to_pay * prices[sku]
         else:
             total_price += prices[sku] * count
 
 
     return total_price
+
