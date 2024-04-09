@@ -91,6 +91,21 @@ def shopping_logic(entered_skus, prices):
                 if count < 0:
                     count = 0
             total_price += count * prices[sku]
+        elif sku == 'U':
+            if count < 4:
+                total_price += prices[sku] * count
+            else:
+                items_to_purchase = count - (count // 4)
+                total_price += items_to_purchase * prices[sku]
+        elif sku == 'V':
+            if count > 2:
+                q3V, r3V = divmod(count, 3)
+                total_price += q3V * 130
+                if r3V > 1:
+                    q2V, r2V = divmod(r3V, 2)
+                    total_price += q2V * 90 + r2V * prices[sku]
+                else:
+                    total_price += r3V * prices[sku]
         else:
             total_price += prices[sku] * count
     return total_price
