@@ -3,17 +3,14 @@ def checkout(skus: str) -> int:
     """Function that returns prices of items in a supermarket, accounting for discounts"""
     #  Dict to store prices
     prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
-              'M': 15, 'N':40,'O':10,'P':50,'Q':30,'R':50,'S':30,'T':20,'U':40,'V':50,'W':20,'X':90,'Y':10,'Z':50}
+              'M': 15, 'N':40,'O':10,'P':50,'Q':30,'R':50,'S':20,'T':20,'U':40,'V':50,'W':20,'X':17,'Y':20,'Z':21}
 
-    entered_skus = {}
+    entered_skus = {letter: 0 for letter in prices}
 
     for i in range(len(skus)):
         if skus[i] not in prices:
             return -1  # Handles cases were skus not in price list
-        elif skus[i] in entered_skus:
-            entered_skus[skus[i]] += 1
-        else:
-            entered_skus[skus[i]] = 1
+        entered_skus[skus[i]] = 1
 
     total_price = shopping_logic(entered_skus, prices)
 
@@ -32,6 +29,10 @@ def shopping_logic(entered_skus, prices):
     decrease_Q_count_offer = 0
     if 'R' in entered_skus:
         decrease_Q_count_offer = entered_skus['R'] // 3
+
+    # Find out how many group offers there are
+    group_offer_count = 0
+    group_offer_count += entered_skus['S']
 
     for sku, count in entered_skus.items():
         if sku == 'A':
