@@ -129,7 +129,11 @@ def shopping_logic(entered_skus, prices):
                         entered_skus['S'] = 0
                         if entered_skus['T'] < 0:
                             entered_skus['X'] += entered_skus['T']
+                            entered_skus['T'] = 0
+                            if entered_skus['X'] < 0:
+                                entered_skus['X'] = 0
         else:
             total_price += prices[sku] * count
     return total_price
+
 
