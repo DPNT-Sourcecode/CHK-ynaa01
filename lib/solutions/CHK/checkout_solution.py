@@ -116,6 +116,19 @@ def shopping_logic(entered_skus, prices):
             total_price += q_group_offer_count * 45
             group_offer_count = 0
             # Take 3 off the most expensive first, which is Z
+            entered_skus['Z'] -= (3 * q_group_offer_count)
+            # If count becomes negative then need to remove count from next highest priced item
+            if entered_skus['Z'] < 0:
+                entered_skus['Y'] += entered_skus['Z']
+                entered_skus['Z'] = 0
+                if entered_skus['Y'] < 0:
+                    entered_skus['S'] += entered_skus['Y']
+                    entered_skus['Y'] = 0
+                    if entered_skus['S'] < 0:
+                        entered_skus['T'] += entered_skus['S']
+                        entered_skus['S'] = 0
+                        if entered_skus['T'] < 0:
+                            entered_skus['X'] += entered_skus['T'
         else:
             total_price += prices[sku] * count
     return total_price
