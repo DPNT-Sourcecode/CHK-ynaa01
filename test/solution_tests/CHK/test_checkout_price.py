@@ -18,7 +18,7 @@ valid_test_data = [
     ('ABCDEF', 165),
     ('HHHHHHHHH', 85),
     ('HHHHHHHHHH', 80),
-    ('KKK', 230),
+    ('KKK', 190),
     ('NNNM', 120),
     ('NNN', 120),
     ('PPPPPP', 250),
@@ -30,7 +30,8 @@ valid_test_data = [
     ('XXXZ', 62),
     ('S', 20),
     ('ZZZZY', 86),
-    ('K', 70)
+    ('K', 70),
+    ('ABCDEFGHIJKLMNOPQRSTUVW', 795)
 ]
 
 @pytest.mark.parametrize("input_str, expected_output", valid_test_data)
@@ -42,6 +43,7 @@ def test_checkout_invalid_input():
     assert checkout("s") == -1
     assert checkout("") == 0
     assert checkout("ABABABABaAY") == -1
+
 
 
 
