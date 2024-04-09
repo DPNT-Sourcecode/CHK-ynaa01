@@ -2,7 +2,7 @@
 def checkout(skus: str) -> int:
     """Function that returns prices of items in a supermarket, accounting for discounts"""
     #  Dict to store prices
-    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10}
+    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90, 'M': 15, 'N':40,'O':10,'P':50,'Q':30,'R':50,'S':'T''U''V''W''X''Y''Z'}
 
     entered_skus = {}
 
@@ -60,3 +60,4 @@ def shopping_logic(entered_skus, prices):
         else:
             total_price += prices[sku] * count
     return total_price
+
