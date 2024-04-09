@@ -16,13 +16,14 @@ def test_checkout_valid_input():
     assert checkout("AAAAAA") == 250
     assert checkout("AAAAAAA") == 300
     assert checkout('F') == 10
-    #assert checkout('ABCDEF') == 165
+    assert checkout('ABCDEF') == 165
 
 
 def test_checkout_invalid_input():
     assert checkout("X") == -1
     assert checkout("") == 0
     assert checkout("ABABABABAY") == -1
+
 
 
 
