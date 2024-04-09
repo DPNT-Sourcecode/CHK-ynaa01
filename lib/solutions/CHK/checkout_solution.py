@@ -2,7 +2,8 @@
 def checkout(skus: str) -> int:
     """Function that returns prices of items in a supermarket, accounting for discounts"""
     #  Dict to store prices
-    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90, 'M': 15, 'N':40,'O':10,'P':50,'Q':30,'R':50,'S':'T''U''V''W''X''Y''Z'}
+    prices = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
+              'M': 15, 'N':40,'O':10,'P':50,'Q':30,'R':50,'S':30,'T':20,'U':40,'V':50,'W':20,'X':90,'Y':10,'Z':50}
 
     entered_skus = {}
 
@@ -25,6 +26,12 @@ def shopping_logic(entered_skus, prices):
     decrease_B_count_offer = 0
     if 'E' in entered_skus:
         decrease_B_count_offer = entered_skus['E'] // 2
+    decrease_M_count_offer = 0
+    if 'N' in entered_skus:
+        decrease_M_count_offer = entered_skus['N'] // 3
+    decrease_Q_count_offer = 0
+    if 'R' in entered_skus:
+        decrease_Q_count_offer = entered_skus['R'] // 3
 
     for sku, count in entered_skus.items():
         if sku == 'A':
@@ -49,15 +56,13 @@ def shopping_logic(entered_skus, prices):
             total_price += quotient * 45 + remainder * prices['B']
         elif sku == 'F':
             if count < 3:
-                print(total_price)
-                print(prices[sku])
-                print(count)
                 total_price += prices[sku] * count
-            #  Calc total number of items to pay for
             else:
+                #  Calc total number of items to pay for
                 items_to_pay = count - (count // 3)
                 total_price += items_to_pay * prices[sku]
         else:
             total_price += prices[sku] * count
     return total_price
+
 
