@@ -2,25 +2,30 @@ import pytest
 
 from lib.solutions.CHK.checkout_solution import checkout
 
+valid_test_data = [
+    ("E", 40),
+    ("ABCDE", 155),
+    ("AAAAA", 200),
+    ("EE", 80),
+    ("EEB", 80),
+    ("EEEB", 120),
+    ("AAA", 130),
+    ("AAAA", 180),
+    ("AAAAAAAA", 330),
+    ("AAAAAA", 250)
+    ("AAAAAAA", 300)
+    ('F',10),
+    ('ABCDEF', 165)
+]
 
+@pytest.mark.parametrize("input_str, expected_output", valid_test_data)
 def test_checkout_valid_input():
-    assert checkout("E") == 40
-    assert checkout("ABCDE") == 155
-    assert  checkout("AAAAA") == 200
-    assert checkout("EE") == 80
-    assert checkout("EEB") == 80
-    assert checkout("EEEB") == 120
-    assert checkout("AAA") == 130
-    assert checkout("AAAA") == 180
-    assert checkout("AAAAAAAA") == 330
-    assert checkout("AAAAAA") == 250
-    assert checkout("AAAAAAA") == 300
-    assert checkout('F') == 10
-    assert checkout('ABCDEF') == 165
+    ass
 
 
 def test_checkout_invalid_input():
-    assert checkout("X") == -1
+    assert checkout("s") == -1
     assert checkout("") == 0
-    assert checkout("ABABABABAY") == -1
+    assert checkout("ABABABABaAY") == -1
+
 
