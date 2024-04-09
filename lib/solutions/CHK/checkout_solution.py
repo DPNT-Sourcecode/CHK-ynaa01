@@ -76,6 +76,21 @@ def shopping_logic(entered_skus, prices):
         elif sku == 'K':
             qK, rK = divmod(count, 2)
             total_price += qK * 150 + rK * prices[sku]
+        elif sku == 'M':
+            if count > 0:
+                count -= decrease_M_count_offer
+                if count < 0:
+                    count = 0
+            total_price += count * prices[sku]
+        elif sku == 'P':
+            qP, rP = divmod(count, 5)
+            total_price += qP * 200 + rP * prices[sku]
+        elif sku == 'Q':
+            if count > 0:
+                count -= decrease_Q_count_offer
+                if count < 0:
+                    count = 0
+            total_price += count * prices[sku]
         else:
             total_price += prices[sku] * count
     return total_price
