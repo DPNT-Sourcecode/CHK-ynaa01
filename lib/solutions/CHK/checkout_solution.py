@@ -26,7 +26,7 @@ def checkout(skus: str) -> int:
         'V': 50,
         'W': 20,
         'X': 17,
-        'Y': 10,
+        'Y': 20,
         'Z': 21
     }
 
@@ -180,3 +180,4 @@ def logic(entered_skus, prices):
         else:
             total_price += prices[sku] * count
     return total_price
+
