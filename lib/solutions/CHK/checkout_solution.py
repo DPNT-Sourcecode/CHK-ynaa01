@@ -112,7 +112,10 @@ def shopping_logic(entered_skus, prices):
                 q2V_b, r2V_b = divmod(count, 2)
                 total_price += q2V_b * 90 + r2V_b * prices[sku]
         elif group_offer_count >= 3:
-            
+            q_group_offer_count = group_offer_count // 3
+            total_price += q_group_offer_count * 45
+            group_offer_count = 0
+            # Take 3 off the most expensive first, which is Z
         else:
             total_price += prices[sku] * count
     return total_price
