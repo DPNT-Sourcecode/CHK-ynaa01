@@ -106,8 +106,9 @@ def shopping_logic(entered_skus, prices):
                     total_price += q2V * 90 + r2V * prices[sku]
                 else:
                     total_price += r3V * prices[sku]
+            else:
+                q2V_b, r2V_b = divmod(count, 2)
+                total_price += q2V_b * 90 + r2V_b * prices[sku]
         else:
             total_price += prices[sku] * count
     return total_price
-
-
