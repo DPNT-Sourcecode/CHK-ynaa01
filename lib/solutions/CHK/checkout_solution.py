@@ -31,8 +31,8 @@ def shopping_logic(entered_skus, prices):
         decrease_Q_count_offer = entered_skus['R'] // 3
 
     # Find out how many group offers there are
-    stxyz_set = {'S', 'T', 'X', 'Y', 'Z'}
-    for
+    group_offer_count = entered_skus['S'] + entered_skus['T'] + entered_skus['X'] + entered_skus['Y'] + entered_skus['Z']
+    group_offer_count_remainder = group_offer_count % 3  # use this to subtract the count for some items
 
     for sku, count in entered_skus.items():
         if sku == 'A':
@@ -111,6 +111,8 @@ def shopping_logic(entered_skus, prices):
             else:
                 q2V_b, r2V_b = divmod(count, 2)
                 total_price += q2V_b * 90 + r2V_b * prices[sku]
+        elif group_offer_count >= 3:
+            
         else:
             total_price += prices[sku] * count
     return total_price
