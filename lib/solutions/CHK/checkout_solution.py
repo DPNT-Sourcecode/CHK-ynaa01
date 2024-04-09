@@ -14,6 +14,13 @@ def checkout(skus: str) -> int:
         else:
             entered_skus[skus[i]] = 1
 
+    total_price = shopping_logic(entered_skus, prices)
+
+
+    return total_price
+
+def shopping_logic(entered_skus, prices):
+    """Runs the logic to calculate the cost of each shopping basket"""
     total_price = 0
     decrease_B_count_offer = 0
     if 'E' in entered_skus:
@@ -39,7 +46,7 @@ def checkout(skus: str) -> int:
                 if count < 0:
                     count = 0
             quotient, remainder = divmod(count, 2)
-            total_price += quotient*45 + remainder * prices['B']
+            total_price += quotient * 45 + remainder * prices['B']
         elif sku == 'F':
             if count < 3:
                 print(total_price)
@@ -52,7 +59,4 @@ def checkout(skus: str) -> int:
                 total_price += items_to_pay * prices[sku]
         else:
             total_price += prices[sku] * count
-
-
     return total_price
-
