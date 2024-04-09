@@ -52,3 +52,8 @@ def checkout(skus: str) -> int:
 
     return total_price
 
+print(checkout('F'))
+print(checkout('ABCDEF'))
+print(checkout('FF'))
+
+
