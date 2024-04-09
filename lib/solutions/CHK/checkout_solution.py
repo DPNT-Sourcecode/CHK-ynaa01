@@ -186,7 +186,3 @@ def logic(entered_skus, prices):
         else:
             total_price += prices[sku] * count
     return total_price
-
-
-
-
