@@ -42,10 +42,14 @@ def checkout(skus: str) -> int:
             total_price += quotient*45 + remainder * prices['B']
         elif sku == 'F':
             if count < 3:
+                print(total_price)
+                print(prices[sku])
+                print(count)
                 total_price += prices[sku] * count
             #  Calc total number of items to pay for
-            items_to_pay = count - (count // 3)
-            total_price += items_to_pay * prices[sku]
+            else:
+                items_to_pay = count - (count // 3)
+                total_price += items_to_pay * prices[sku]
         else:
             total_price += prices[sku] * count
 
@@ -53,7 +57,9 @@ def checkout(skus: str) -> int:
     return total_price
 
 print(checkout('F'))
+
 print(checkout('ABCDEF'))
 print(checkout('FF'))
+
 
 
