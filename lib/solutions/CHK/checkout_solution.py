@@ -31,6 +31,7 @@ def shopping_logic(entered_skus, prices):
         decrease_Q_count_offer = entered_skus['R'] // 3
 
     # Find out how many group offers there are
+    group_offer_count = 0
     group_offer_count = entered_skus['S'] + entered_skus['T'] + entered_skus['X'] + entered_skus['Y'] + entered_skus['Z']
     group_offer_count_remainder = group_offer_count % 3  # use this to subtract the count for some items
 
@@ -115,25 +116,28 @@ def shopping_logic(entered_skus, prices):
             q_group_offer_count = group_offer_count // 3
             total_price += q_group_offer_count * 45
             group_offer_count = 0
-            # Take 3 off the most expensive first, which is Z
+            #  take 3 off the most expensive always - which is Z
             entered_skus['Z'] -= (3 * q_group_offer_count)
-            # If count becomes negative then need to remove count from next highest priced item
+            print("Z", entered_skus['Z'])
             if entered_skus['Z'] < 0:
-                entered_skus['Y'] += entered_skus['Z']
+                entered_skus['Y'] = entered_skus['Y'] + entered_skus['Z']
                 entered_skus['Z'] = 0
+                print("Y", entered_skus['Y'])
                 if entered_skus['Y'] < 0:
-                    entered_skus['S'] += entered_skus['Y']
+                    entered_skus['S'] = entered_skus['S'] + entered_skus['Y']
                     entered_skus['Y'] = 0
+                    print("S", entered_skus['S'])
                     if entered_skus['S'] < 0:
                         entered_skus['T'] += entered_skus['S']
                         entered_skus['S'] = 0
+                        print("T", entered_skus['T'])
                         if entered_skus['T'] < 0:
+                            print("X before", entered_skus['X'])
                             entered_skus['X'] += entered_skus['T']
                             entered_skus['T'] = 0
+                            print("X after", entered_skus['X'])
                             if entered_skus['X'] < 0:
                                 entered_skus['X'] = 0
         else:
             total_price += prices[sku] * count
     return total_price
-
-
