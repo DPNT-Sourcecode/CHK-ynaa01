@@ -22,6 +22,3 @@ def test_checkout_invalid_input():
     assert checkout("") == 0
     assert checkout("ABABABABAY") == -1
 
-
-
-
