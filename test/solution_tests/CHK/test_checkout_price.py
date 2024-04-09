@@ -12,20 +12,22 @@ valid_test_data = [
     ("AAA", 130),
     ("AAAA", 180),
     ("AAAAAAAA", 330),
-    ("AAAAAA", 250)
-    ("AAAAAAA", 300)
+    ("AAAAAA", 250),
+    ("AAAAAAA", 300),
     ('F',10),
-    ('ABCDEF', 165)
+    ('ABCDEF', 165),
+    ('HHHHHHHHH', 85)
 ]
 
 @pytest.mark.parametrize("input_str, expected_output", valid_test_data)
-def test_checkout_valid_input():
-    ass
+def test_checkout_valid_input(input_str, expected_output):
+    assert checkout(input_str) == expected_output
 
 
 def test_checkout_invalid_input():
     assert checkout("s") == -1
     assert checkout("") == 0
     assert checkout("ABABABABaAY") == -1
+
 
 
